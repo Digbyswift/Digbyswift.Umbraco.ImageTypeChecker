@@ -6,8 +6,8 @@
         <ImplicitUsings>enable</ImplicitUsings>
     </PropertyGroup>
 
-    <Target Name="BuildCountryPickerFrontend" BeforeTargets="Build">
-        <Message Text="Building CountryPicker frontend" Importance="high" />
+    <Target Name="BuildPluginFrontend" BeforeTargets="Build">
+        <Message Text="Building plugin frontend" Importance="high" />
         <Exec WorkingDirectory="$(MSBuildProjectDirectory)"
               Command="npm ci"
               Condition="!Exists('$(MSBuildProjectDirectory)\node_modules') And Exists('$(MSBuildProjectDirectory)\package-lock.json')" />

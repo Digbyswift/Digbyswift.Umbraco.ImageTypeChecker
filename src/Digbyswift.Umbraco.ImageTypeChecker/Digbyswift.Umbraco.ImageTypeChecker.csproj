@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk.Razor">
     <PropertyGroup>
         <TargetFramework>net10.0</TargetFramework>
         <Nullable>enable</Nullable>
@@ -21,7 +21,7 @@
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageReleaseNotes>A property editor for providing a basic image analysis.</PackageReleaseNotes>
         <PackageTags>c# umbraco</PackageTags>
-        <PackageVersion>17.0.0-preview9</PackageVersion>
+        <PackageVersion>17.0.0</PackageVersion>
         <AssemblyVersion>17.0.0</AssemblyVersion>
         <FileVersion>17.0.0</FileVersion>
         <PackageIcon>package-icon.png</PackageIcon>
