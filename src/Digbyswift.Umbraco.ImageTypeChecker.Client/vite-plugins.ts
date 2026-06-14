@@ -5,13 +5,19 @@ export function postBuildCopyToPackage() {
     return {
         name: 'copy-to-package',
         closeBundle() {
+            const assetsPath = consts.clientPluginPath + '/assets';
+
+            if (!fs.existsSync(assetsPath)) {
+                return;
+            }
+
             fs.rmSync(
                 consts.nugetStaticAssetsPath + '/assets', {
                 recursive: true,
                 force: true
             });
             fs.cpSync(
-                consts.clientPluginPath + '/assets',
+                assetsPath,
                 consts.nugetStaticAssetsPath + '/assets',
                 {
                     recursive: true,

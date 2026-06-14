@@ -7,14 +7,14 @@
     "strict": true,
     "experimentalDecorators": true,
     "skipLibCheck": true,
-    "noEmit": true
+    "noEmit": true,
+    "types": [
+      "@umbraco-cms/backoffice/extension-registry",
+      "@umbraco-cms/backoffice/icon",
+      "@umbraco-cms/backoffice/localization"
+    ]
   },
   "include": [
     "src"
-  ],
-  "types": [
-    "@umbraco-cms/backoffice/extension-registry",
-    "@umbraco-cms/backoffice/icon",
-    "@umbraco-cms/backoffice/localization",
   ]
 }

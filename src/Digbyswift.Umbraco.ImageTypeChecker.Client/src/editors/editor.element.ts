@@ -3,19 +3,29 @@ import { UmbLitElement } from '@umbraco-cms/backoffice/lit-element';
 import { UmbPropertyValueChangeEvent } from '@umbraco-cms/backoffice/property-editor';
 import consts from '../../vite-consts';
 
-const IMAGE_TYPES = [
+type ImageTypeCheckerValue = {
+  imageType: number;
+  manuallyOverridden: boolean;
+};
+
+type ImageTypeOption = {
+  value: number;
+  label: string;
+};
+
+const IMAGE_TYPES: Array<ImageTypeOption> = [
   { value: 0, label: 'Unknown' },
   { value: 1, label: 'Photo' },
   { value: 2, label: 'Graphic' }
 ];
 
 class DigbyswiftImageTypeCheckerElement extends UmbLitElement {
-  static properties = {
+  static override properties = {
     value: { attribute: false },
     readonly: { type: Boolean, reflect: true }
   };
 
-  static styles = css`
+  static override styles = css`
     :host {
       display: block;
     }
@@ -50,30 +60,32 @@ class DigbyswiftImageTypeCheckerElement extends UmbLitElement {
     }
   `;
 
-  #value = null;
+  readonly = false;
 
-  constructor() {
-    super();
-    this.readonly = false;
-  }
+  #value: ImageTypeCheckerValue | null = null;
 
-  set value(value) {
+  set value(value: ImageTypeCheckerValue | string | null | undefined) {
     const oldValue = this.#value;
     this.#value = this.#normalizeValue(value);
     this.requestUpdate('value', oldValue);
   }
 
-  get value() {
+  get value(): ImageTypeCheckerValue | null {
     return this.#value;
   }
 
-  #normalizeValue(value) {
+  #normalizeValue(value: ImageTypeCheckerValue | string | null | undefined): ImageTypeCheckerValue | null {
     if (value === null || value === undefined || value === '') {
       return null;
     }
 
     const parsedValue = typeof value === 'string' ? this.#parseValue(value) : value;
-    const imageType = Number.parseInt(parsedValue?.imageType, 10);
+
+    if (!this.#isValueCandidate(parsedValue)) {
+      return null;
+    }
+
+    const imageType = Number.parseInt(String(parsedValue.imageType), 10);
 
     if (!IMAGE_TYPES.some((option) => option.value === imageType)) {
       return null;
@@ -81,11 +93,11 @@ class DigbyswiftImageTypeCheckerElement extends UmbLitElement {
 
     return {
       imageType,
-      manuallyOverridden: parsedValue?.manuallyOverridden === true
+      manuallyOverridden: parsedValue.manuallyOverridden === true
     };
   }
 
-  #parseValue(value) {
+  #parseValue(value: string): unknown {
     try {
       return JSON.parse(value);
     } catch {
@@ -93,11 +105,15 @@ class DigbyswiftImageTypeCheckerElement extends UmbLitElement {
     }
   }
 
-  #getImageTypeLabel(value) {
+  #isValueCandidate(value: unknown): value is Partial<ImageTypeCheckerValue> {
+    return typeof value === 'object' && value !== null && 'imageType' in value;
+  }
+
+  #getImageTypeLabel(value: number): string {
     return IMAGE_TYPES.find((option) => option.value === value)?.label ?? 'Not set';
   }
 
-  #setImageType(imageType) {
+  #setImageType(imageType: number) {
     if (this.readonly) {
       return;
     }
@@ -119,7 +135,7 @@ class DigbyswiftImageTypeCheckerElement extends UmbLitElement {
     this.dispatchEvent(new UmbPropertyValueChangeEvent());
   }
 
-  render() {
+  override render() {
     const currentImageType = this.value?.imageType;
     const hasValue = currentImageType !== undefined;
     const status = hasValue ? this.#getImageTypeLabel(currentImageType) : 'Not set';
