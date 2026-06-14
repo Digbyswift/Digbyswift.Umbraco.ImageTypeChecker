@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "useDefineForClassFields": false,
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "strict": true,
+    "experimentalDecorators": true,
+    "skipLibCheck": true,
+    "noEmit": true
+  },
+  "include": [
+    "src"
+  ],
+  "types": [
+    "@umbraco-cms/backoffice/extension-registry",
+    "@umbraco-cms/backoffice/icon",
+    "@umbraco-cms/backoffice/localization",
+  ]
+}

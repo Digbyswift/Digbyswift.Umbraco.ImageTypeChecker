@@ -1,0 +1,15 @@
+{
+  "name": "digbyswift-umbraco-image-type-checker",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc && vite build"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.2",
+    "@umbraco-cms/backoffice": "^17.0.0",
+    "typescript": "^5.9.0",
+    "vite": "^7.0.0"
+  }
+}

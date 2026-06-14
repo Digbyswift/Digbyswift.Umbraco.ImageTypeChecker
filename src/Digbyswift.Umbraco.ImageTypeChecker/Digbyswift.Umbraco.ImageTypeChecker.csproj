@@ -1,0 +1,56 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <LangVersion>default</LangVersion>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+        <RootNamespace>Digbyswift.Umbraco.ImageTypeChecker</RootNamespace>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <StaticWebAssetBasePath>/</StaticWebAssetBasePath>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <Title>Digbyswift.Umbraco.ImageTypeChecker</Title>
+        <Company>Digbyswift Ltd</Company>
+        <Authors>$(Company)</Authors>
+        <Copyright>Copyright © $([System.DateTime]::Now.Year) $(Company)</Copyright>
+        <PackageProjectUrl>https://github.com/digbyswift/Digbyswift.Umbraco.ImageTypeChecker</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/digbyswift/Digbyswift.Umbraco.ImageTypeChecker</RepositoryUrl>
+        <PackageLicenseFile>LICENSE</PackageLicenseFile>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageReleaseNotes>A property editor for providing a basic image analysis.</PackageReleaseNotes>
+        <PackageTags>c# umbraco</PackageTags>
+        <PackageVersion>17.0.0-preview9</PackageVersion>
+        <AssemblyVersion>17.0.0</AssemblyVersion>
+        <FileVersion>17.0.0</FileVersion>
+        <PackageIcon>package-icon.png</PackageIcon>
+        <PackageIconUrl>package-icon.png</PackageIconUrl>
+        <Description>A property editor for providing a basic image analysis.</Description>
+        <RepositoryType>git</RepositoryType>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="..\..\package-icon.png" Pack="true" PackagePath="" />
+        <None Include="..\..\LICENSE" Pack="true" PackagePath="" />
+        <None Include="..\..\README.md" Pack="true" PackagePath="" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Digbyswift.Core" Version="2.6.2" />
+        <PackageReference Include="SixLabors.ImageSharp" Version="3.1.11" />
+        <PackageReference Include="System.Text.Json" Version="10.0.4" />
+        <PackageReference Include="Umbraco.Cms.Core" Version="17.0.0" />
+        <PackageReference Include="Umbraco.Cms.Infrastructure" Version="17.0.0" />
+        <PackageReference Include="Umbraco.Cms.Web.Common" Version="17.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Digbyswift.Umbraco.ImageTypeChecker.Client\Digbyswift.Umbraco.ImageTypeChecker.Client.csproj">
+            <ReferenceOutputAssembly>False</ReferenceOutputAssembly>
+        </ProjectReference>
+    </ItemGroup>
+
+</Project>

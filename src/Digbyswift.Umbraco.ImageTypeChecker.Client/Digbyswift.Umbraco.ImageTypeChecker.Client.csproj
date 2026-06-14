@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+    <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <Target Name="BuildCountryPickerFrontend" BeforeTargets="Build">
+        <Message Text="Building CountryPicker frontend" Importance="high" />
+        <Exec WorkingDirectory="$(MSBuildProjectDirectory)"
+              Command="npm ci"
+              Condition="!Exists('$(MSBuildProjectDirectory)\node_modules') And Exists('$(MSBuildProjectDirectory)\package-lock.json')" />
+        <Exec WorkingDirectory="$(MSBuildProjectDirectory)"
+              Command="npm install"
+              Condition="!Exists('$(MSBuildProjectDirectory)\node_modules') And !Exists('$(MSBuildProjectDirectory)\package-lock.json')" />
+        <Exec WorkingDirectory="$(MSBuildProjectDirectory)"
+              Command="npm run build" />
+    </Target>
+
+</Project>

@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33103.184
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Digbyswift.Umbraco.ImageTypeChecker", "Digbyswift.Umbraco.ImageTypeChecker\Digbyswift.Umbraco.ImageTypeChecker.csproj", "{70657AF1-494B-42D0-B7BA-B8C1DE882ACA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Files", "Solution Files", "{0DE73A7F-311C-4435-90AB-9C72107231A6}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		Directory.Build.props = Directory.Build.props
+		StyleCopAnalyzers.Custom.ruleset = StyleCopAnalyzers.Custom.ruleset
+		azure-pipeline.yaml = azure-pipeline.yaml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Digbyswift.Umbraco.ImageTypeChecker.Client", "Digbyswift.Umbraco.ImageTypeChecker.Client\Digbyswift.Umbraco.ImageTypeChecker.Client.csproj", "{15B737C2-3CDF-49F7-8C20-BFF894AB8857}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Umbraco.Cms.v17.x", "Umbraco.Cms.v17.x\Umbraco.Cms.v17.x.csproj", "{A998F260-5DBD-48A5-B433-5D5BE526C685}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{70657AF1-494B-42D0-B7BA-B8C1DE882ACA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70657AF1-494B-42D0-B7BA-B8C1DE882ACA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70657AF1-494B-42D0-B7BA-B8C1DE882ACA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70657AF1-494B-42D0-B7BA-B8C1DE882ACA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15B737C2-3CDF-49F7-8C20-BFF894AB8857}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15B737C2-3CDF-49F7-8C20-BFF894AB8857}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15B737C2-3CDF-49F7-8C20-BFF894AB8857}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15B737C2-3CDF-49F7-8C20-BFF894AB8857}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A998F260-5DBD-48A5-B433-5D5BE526C685}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A998F260-5DBD-48A5-B433-5D5BE526C685}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A998F260-5DBD-48A5-B433-5D5BE526C685}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A998F260-5DBD-48A5-B433-5D5BE526C685}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B2A5B116-EEC0-4789-8EF2-83032DCDACA4}
+	EndGlobalSection
+EndGlobal
